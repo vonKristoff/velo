@@ -4,16 +4,16 @@
  * velo(fn, 400)
  * fn(step) { target = step * 100 }
  */
-export default function (render, duration = 400, easing = 'linear', onComplete = null) {
+export default function (render, duration = 400, delay = 0, easing = 'linear', onComplete = null) {
     let start = Date.now();
     (function cycle() {
-        let progress = (Date.now() - start) / duration;
+        let progress = (Date.now() - (start + delay)) / duration;
         if(progress >= 1) {
             render(1)
             if(typeof onComplete === 'function') onComplete();
         } else {
             requestAnimationFrame(cycle)
-            render(ease[easing](progress))
+            if(progress > 0) render(ease[easing](progress))
         }
     })()
 }
