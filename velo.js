@@ -1,10 +1,10 @@
 /**
  * velo
  * simplistic Tweeeen engine with easing equations
- * velo(fn, 400)
+ * velo(fn, { delay: 400 })
  * fn(step) { target = step * 100 }
  */
-export default function (render, duration = 400, delay = 0, easing = 'linear', onComplete = null) {
+export default function (render, { duration = 400, delay = 0, easing = 'linear', onComplete = null }) {
     let start = Date.now();
     (function cycle() {
         let progress = (Date.now() - (start + delay)) / duration;
