@@ -28,3 +28,9 @@ Usual bolts with defaults.
 #### Easing
 
 Check the source for a full list.
+
+===
+
+##### TODO
+
+* build params using `ES6 Rest | Spread` operators
